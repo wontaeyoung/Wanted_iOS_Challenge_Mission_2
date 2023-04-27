@@ -11,4 +11,26 @@ enum Grade: String, CaseIterable {
     case d = "D"
     case f = "F"
     
+    func getScore() -> Float {
+        switch self {
+        case .aPlus:
+            return 4.5
+        case .a:
+            return 4
+        case .bPlus:
+            return 3.5
+        case .b:
+            return 3
+        case .cPlus:
+            return 2.5
+        case .c:
+            return 2
+        case .dPlus:
+            return 1.5
+        case .d:
+            return 1
+        case .f:
+            return 0
+        }
+    }
 }
