@@ -1,6 +1,7 @@
 import Foundation
 
 enum Grade: String, CaseIterable {
+    
     case aPlus = "A+"
     case a = "A"
     case bPlus = "B+"
@@ -11,7 +12,7 @@ enum Grade: String, CaseIterable {
     case d = "D"
     case f = "F"
     
-    func getScore() -> Float {
+    func getScore() -> Double {
         switch self {
         case .aPlus:
             return 4.5
@@ -33,4 +34,5 @@ enum Grade: String, CaseIterable {
             return 0
         }
     }
+    
 }
