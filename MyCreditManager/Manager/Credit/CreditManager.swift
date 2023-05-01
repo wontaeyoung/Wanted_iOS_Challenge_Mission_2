@@ -21,4 +21,8 @@ final class CreditManager {
         return .success(student)
     }
     
+    func isContain(studentName: String) -> Bool {
+        return students.map{$0.name}.contains(studentName)
+    }
+    
 }
