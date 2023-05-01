@@ -9,4 +9,16 @@ final class CreditManager {
     // MARK: -Initializer
     private init() { }
     
+    // MARK: -Method
+    func getStudent(name: String) -> Result<Student, CreditManageError> {
+        guard let student = students.first(
+            where: { $0.name == name }
+        ) else {
+            return .failure(
+                .unfindable(name: name)
+            )
+        }
+        return .success(student)
+    }
+    
 }
