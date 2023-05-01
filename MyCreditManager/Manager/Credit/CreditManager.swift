@@ -25,4 +25,9 @@ final class CreditManager {
         return students.map{$0.name}.contains(studentName)
     }
     
+    func getStudentIndexWithName(name: String) -> Int? {
+        return students.map{$0.name}.firstIndex(of: name)
+    }
+    
+}
 }
