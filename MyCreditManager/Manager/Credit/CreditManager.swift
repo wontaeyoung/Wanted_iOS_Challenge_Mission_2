@@ -30,4 +30,8 @@ final class CreditManager {
     }
     
 }
+
+extension CreditManager: CreditManageable {
+    
+    
 }
