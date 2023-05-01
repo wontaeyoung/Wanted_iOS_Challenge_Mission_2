@@ -89,5 +89,31 @@ extension CreditManager: CreditManageable {
         
     }
     
+    func removeGrade(
+        studentName: String,
+        subjectName: String
+    ) -> Result<String, CreditManageError> {
+        
+        guard let index = getStudentIndexWithName(name: studentName) else {
+            return .failure(
+                .unfindable(name: studentName)
+            )
+        }
+        
+        guard students[index].grade.keys
+            .contains(subjectName) else {
+            return .failure(
+                .invalidSubject(
+                    studentName: studentName,
+                    subjectName: subjectName
+                )
+            )
+        }
+        
+        students[index].grade.removeValue(forKey: subjectName)
+        
+        return .success("\(studentName) 학생의 \(subjectName) 과목의 성적이 삭제되었습니다.")
+    }
+    
     
 }
