@@ -33,5 +33,24 @@ final class CreditManager {
 
 extension CreditManager: CreditManageable {
     
+    // MARK: -Method
+    func addStudent(name: String) -> Result<String, CreditManageError> {
+        
+        guard isContain(studentName: name) == false else {
+            return .failure(
+                .duplicateStudent(name: name)
+            )
+        }
+        
+        let newStudent: Student = .init(
+            name: name,
+            grade: .init()
+        )
+        
+        students.append(newStudent)
+        
+        return .success("\(name) 학생을 추가했습니다.")
+    }
+    
     
 }
