@@ -52,5 +52,18 @@ extension CreditManager: CreditManageable {
         return .success("\(name) 학생을 추가했습니다.")
     }
     
+    func removeStudent(name: String) -> Result<String, CreditManageError> {
+        
+        guard let index = getStudentIndexWithName(name: name) else {
+            return .failure(
+                .unfindable(name: name)
+            )
+        }
+        
+        students.remove(at: index)
+        
+        return .success("\(name) 학생을 삭제하였습니다.")
+    }
+    
     
 }
