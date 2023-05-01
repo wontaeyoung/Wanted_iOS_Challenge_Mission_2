@@ -65,5 +65,29 @@ extension CreditManager: CreditManageable {
         return .success("\(name) 학생을 삭제하였습니다.")
     }
     
+    func addGrade(
+        studentName: String,
+        subjectName: String,
+        alphabetGrade: String
+    ) -> Result<String, CreditManageError> {
+        
+        guard let index = getStudentIndexWithName(name: studentName) else {
+            return .failure(
+                .unfindable(name: studentName)
+            )
+        }
+        
+        guard let grade = Grade.init(rawValue: alphabetGrade) else {
+            return .failure(
+                .invalidGrade(alphabetGrade: alphabetGrade)
+            )
+        }
+        
+        students[index].grade[subjectName] = grade
+        
+        return .success("\(studentName) 학생의 \(subjectName) 과목이 \(alphabetGrade)로 추가(변경)되었습니다.")
+        
+    }
+    
     
 }
