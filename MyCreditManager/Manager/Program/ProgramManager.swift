@@ -53,4 +53,16 @@ extension ProgramManager {
             .contains(choice)
     }
     
+    private func isCorrectPattern(
+        regExp: RegExpPattern,
+        input: String
+    ) -> Bool {
+        
+        let pattern = regExp.rawValue
+        
+        return input.range(
+            of: pattern,
+            options: .regularExpression
+        ) != nil
+    }
 }
