@@ -43,3 +43,7 @@ final class ProgramManager: ProgramManageable {
     private init() { }
     
 }
+// MARK: -유효성 검사 관련 메서드 익스텐션
+extension ProgramManager {
+    
+}
