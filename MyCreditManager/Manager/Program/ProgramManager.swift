@@ -35,4 +35,10 @@ final class ProgramManager: ProgramManageable {
         }
     }
 
+    // MARK: -Property
+    static let shared: ProgramManager = .init()
+    
+    // MARK: -Initializer
+    private init() { }
+    
 }
