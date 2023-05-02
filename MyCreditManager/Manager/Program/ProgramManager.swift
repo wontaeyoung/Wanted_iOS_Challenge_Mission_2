@@ -75,5 +75,11 @@ extension ProgramManager {
         print("1: 학생추가, 2: 학생삭제, 3: 성적추가(변경), 4: 성적삭제, 5: 평점보기, X: 종료")
     }
     
+    private func printMenuDescription(menu: Menu) {
+        print(
+            menu.getMenuDescription()
+        )
+    }
+    
 }
 
