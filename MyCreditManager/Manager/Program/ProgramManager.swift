@@ -81,5 +81,11 @@ extension ProgramManager {
         )
     }
     
+    private func printErrorDescription(error: LocalizedError) {
+        guard let errorDescription = error.errorDescription else {
+            return
+        }
+        print(errorDescription)
+    }
 }
 
