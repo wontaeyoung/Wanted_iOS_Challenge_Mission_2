@@ -66,3 +66,9 @@ extension ProgramManager {
         ) != nil
     }
 }
+
+// MARK: -출력 관련 메서드 익스텐션
+extension ProgramManager {
+    
+}
+
