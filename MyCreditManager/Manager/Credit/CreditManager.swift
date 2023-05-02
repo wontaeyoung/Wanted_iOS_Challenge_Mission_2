@@ -115,5 +115,35 @@ extension CreditManager: CreditManageable {
         return .success("\(studentName) 학생의 \(subjectName) 과목의 성적이 삭제되었습니다.")
     }
     
+    func getGPA(studentName: String) -> Result<String, CreditManageError> {
+        
+        guard let index = getStudentIndexWithName(name: studentName) else {
+            return .failure(
+                .unfindable(name: studentName)
+            )
+        }
+        
+        let student: Student = students[index]
+        
+        guard student.grade.isEmpty == false else {
+            return .failure(
+                .emptySubject(name: studentName)
+            )
+        }
+        
+        let grades: String = student.grade.map {
+            $0.key + ": " + $0.value.rawValue + "\n"
+        }.joined()
+        
+        let sumGradePoint: Double = student.grade.values.map {
+            $0.getScore()
+        }.reduce(0,+)
+        
+        let averageGradePoint: Double = sumGradePoint / Double(student.grade.count)
+        
+        let averageGradePointAsString: String = String(format: "%.2f", averageGradePoint)
+        
+        return .success(grades + "평점: \(averageGradePointAsString)")
+    }
     
 }
