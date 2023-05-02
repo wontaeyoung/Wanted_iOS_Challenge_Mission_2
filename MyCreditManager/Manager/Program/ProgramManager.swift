@@ -46,4 +46,11 @@ final class ProgramManager: ProgramManageable {
 // MARK: -유효성 검사 관련 메서드 익스텐션
 extension ProgramManager {
     
+    private func isValidFunctionChoice(choice: String) -> Bool {
+        return Menu
+            .allCases
+            .map{$0.rawValue}
+            .contains(choice)
+    }
+    
 }
