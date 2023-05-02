@@ -37,6 +37,7 @@ final class ProgramManager: ProgramManageable {
 
     // MARK: -Property
     static let shared: ProgramManager = .init()
+    private let creditManager: CreditManager = .shared
     
     // MARK: -Initializer
     private init() { }
