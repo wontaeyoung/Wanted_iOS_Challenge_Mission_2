@@ -8,6 +8,7 @@ enum CreditManageError: Error {
         studentName: String,
         subjectName: String
     )
+    case emptySubject(name: String)
 }
 
 extension CreditManageError: LocalizedError {
@@ -26,8 +27,9 @@ extension CreditManageError: LocalizedError {
         case let .invalidSubject(studentName, subjectName):
             return "\(studentName) 학생은 \(subjectName) 과목을 수강하지 않습니다."
             
+        case let .emptySubject(name):
+            return "\(name) 학생은 수강 중인 과목이 없습니다."
         }
         
     }
-    
 }
